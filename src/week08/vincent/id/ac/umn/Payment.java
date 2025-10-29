@@ -6,15 +6,44 @@ public abstract class Payment {
 		// TODO Auto-generated method stub
 
 	}
-	protected double amount;
+	protected boolean isPaidOff;
+	protected Item item;
 	
-	public Payment(double amount) {
-		this.amount = amount;
+	public abstract int pay();
+	
+	public Payment() {
+		this.isPaidOff = false;
+		this.item = null;
 	}
 	
-	abstract void processPayment();
+	public Payment(Item item) {
+		this.isPaidOff = false;
+		this.item = item;
+	}
 	
-	public void paymentDetails() {
-		System.out.println("Processing payment of $" + amount);
+	public boolean isPaidOff() {
+		return isPaidOff;
+	}
+	
+	public Item getItem() {
+		return item;
+	}
+	
+	public String getItemName() {
+		return item.getName();
+	}
+	
+	public String getStatus() {
+		if(isPaidOff) {
+			return "FINISHED";
+		}
+		return "ON PROGRESS";
+	}
+	
+	public int getRemainingAmount() {
+		if(isPaidOff) {
+			return 0;
+		}
+		return item.getPrice();
 	}
 }
