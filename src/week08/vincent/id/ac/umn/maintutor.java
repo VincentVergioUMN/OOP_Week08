@@ -1,6 +1,6 @@
 package week08.vincent.id.ac.umn;
 
-public class main {
+public class maintutor {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
